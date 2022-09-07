@@ -1,0 +1,212 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <conio.h>
+#include <math.h>
+#include <time.h>
+
+typedef int bool;
+#define true 1;
+#define false 0;
+
+void histogram(int numbers[], int length, int n) {// we build histogram function for horizontal histogram
+
+	bool finished = true;
+	for(int i = 0; i < length; i++)
+		if(numbers[i] - n > 0)
+			finished = false;
+		
+	if(finished)
+		return;
+	else {
+		
+		histogram(numbers, length, n + 1);
+		
+		int counter = 0;
+		for(int i = 0; i < length; i++) {
+			
+			int number = numbers[i] - n;
+			if(number > 0) 
+				printf(" * ");
+			else
+				printf("   ");
+ 		}
+		
+		printf("\n");
+	}
+}
+
+void histogram1(int sayilar[], int uzunluk, int p) {// we build histogram function for horizontal histogram
+
+	bool finished = true;
+	for(int i = 0; i < uzunluk; i++)
+		if(sayilar[i] - p > 0)
+			finished = false;
+		
+	if(finished)
+		return;
+	else {
+		
+		histogram1(sayilar, uzunluk, p + 1);
+		
+		int counter = 0;
+		for(int i = 0; i < uzunluk; i++) {
+			
+			int sayi = sayilar[i] - p;
+			if(sayi > 0) 
+				printf(" * ");
+			else
+				printf("   ");
+ 		}
+		
+		printf("\n");
+	}
+}
+
+int main(void) 
+{
+	srand(time(NULL));
+	int l;
+	int a=0;
+	int b=0;//roll1 i
+	int countt1=0;
+	int countt2=0;
+	int countt3=0;
+	int countt4=0;
+	int countt5=0;
+	int countt6=0;
+
+	while(a!=10000)
+	{
+		a+=1;
+		for(l=1;l<=10000;l++)
+		{
+			b= rand()%6+1;
+		}
+		if(b==2)
+		{
+			countt1+=1;
+		}
+		if(b==3)
+		{
+			countt2+=1;
+		}
+		if(b==3)
+		{
+			countt3+=1;
+		}
+		if(b==4)
+		{
+			countt4+=1;
+		}if(b==5)
+		{
+			countt5+=1;
+		}if(b==6)
+		{
+			countt6+=1;
+		}
+	}
+	printf("1 DICE DISTURIBITON\n");
+	printf("1:%d\n",countt1);
+	printf("2:%d\n",countt2);
+	printf("3:%d\n",countt3);
+	printf("4:%d\n",countt4);
+	printf("5:%d\n",countt5);
+	printf("6:%d\n",countt6);
+	printf("      HUNDERETH DISTURIBITION  \n\n");//in shape, not have 100 star because we defined int and we loss some value like 0.x
+	//disturbition of 100 percent system
+	int sayilar[] = {countt1/100,countt2/100,countt3/100,countt4/100,countt5/100,countt6/100};
+	//we inputted count1,2... for numbers and printed our shape
+	int uzunluk = sizeof(sayilar) / sizeof(int);
+
+	histogram1(sayilar, uzunluk, 0);
+	
+	printf(" 1  2  3  4  5  6\n\n\n");
+	
+	srand(time(NULL));//we defined variables for roll diece and count sums
+	int i,j,z;
+	int k=0;
+	int x=0;//roll1 i
+	int y=0;//roll2 j
+	int count2=0;// for count, we define count variables
+	int count3=0;
+	int count4=0;
+	int count5=0;
+	int count6=0;
+	int count7=0;
+	int count8=0;
+	int count9=0;
+	int count10=0;
+	int count11=0;
+	int count12=0;
+	while(k!=10000)
+	{
+		k+=1;
+		for(i=1;i<=10000;i++)//x and y replaced for dices, z= x+y
+		{
+			x= rand()%6+1;
+		}
+		for(j=1;j<=10000;j++)
+		{
+			y=rand()%6+1;
+		}
+		z=x+y;
+		if(x+y==2)
+		{
+			count2+=1;
+		}
+		if(x+y==3)
+		{
+			count3+=1;
+		}
+		if(x+y==4)
+		{
+			count4+=1;
+		}if(x+y==5)
+		{
+			count5+=1;
+		}if(x+y==6)
+		{
+			count6+=1;
+		}if(x+y==7)
+		{
+			count7+=1;
+		}if(x+y==8)
+		{
+			count8+=1;
+		}if(x+y==9)
+		{
+			count9+=1;
+		}if(x+y==10)
+		{
+			count10+=1;
+		}if(x+y==11)
+		{
+			count11+=1;
+		}if(x+y==12)
+		{
+			count12+=1;
+		}
+	}
+	printf("SUM OF 2 DICES\n");// we printed count numbers for see statistic with numbers
+	printf("2:%d\n",count2);
+	printf("3:%d\n",count3);
+	printf("4:%d\n",count4);
+	printf("5:%d\n",count5);
+	printf("6:%d\n",count6);
+	printf("7:%d\n",count7);
+	printf("8:%d\n",count8);
+	printf("9:%d\n",count9);
+	printf("10:%d\n",count10);
+	printf("11:%d\n",count11);
+	printf("12:%d\n",count12);
+	printf("      HUNDERETH DISTURIBITION  \n\n");//in shape, not have 100 star because we defined int and we loss some value like 0.x
+	//disturbition of 100 percent system
+	int numbers[] = {count2/100,count3/100,count4/100,count5/100,count6/100,count7/100,count8/100,count9/100,count10/100,count11/100,count12/100};
+	//we inputted count1,2... for numbers and printed our shape
+	int length = sizeof(numbers) / sizeof(int);
+
+	histogram(numbers, length, 0);
+	
+	printf(" 2  3  4  5  6  7  8  9  10 11 12");
